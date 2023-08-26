@@ -36,3 +36,14 @@ Playwright, CodeceptJS, Selenium, Selenid
 Github-репозиторий
 - В корне репозитория должен находится файл README.MD
 с инструкцией по запуску тестов.
+
+### Инструкция по запуску
+
+Склонируйте репозиторий к себе на устройство и перейдите в склонированную директорию
+```sh
+git clone https://github.com/mackarovak/Avito-qa
+```
+Перейдите в папку tasks
+```sh
+python test.py
+```
