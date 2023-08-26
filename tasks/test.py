@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+import time
 driver = webdriver.Chrome()
 
 driver.get("https://www.avito.ru/favorites")
@@ -52,5 +52,5 @@ remove_button.click()
 driver.get("https://www.avito.ru/kaliningrad/kollektsionirovanie/moneta_50let_3363777565")
 
 driver.get("https://www.avito.ru/favorites")
-
+time.sleep(2)
 driver.quit()
