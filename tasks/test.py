@@ -26,7 +26,7 @@ favorites_list = WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.XPATH, '//*[@id="app"]/div/div[4]/div/div/favorite-items-list/div/div/div[1]/div[2]/div[1]/div/div/div[1]/a/img'))
 )
 
-driver.get("https://www.avito.ru/slavyansk-na-kubani/telefony/telefon_samsung_s21fe5g_3254210395")
+driver.get("https://www.avito.ru/krasnodar/odezhda_obuv_aksessuary/krossovki_dolcegabbana_zhenskie_3209566854")
 add_to_favorites_button = WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.XPATH, '//*[@id="app"]/div/div[3]/div[1]/div/div[2]/div[3]/div[1]/div[1]/div/div[3]/div/div/div/div[1]/button/span'))
 )
