@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
 import time
 
 # Initialize the driver
@@ -67,8 +68,17 @@ def add_to_favorites(item_url, xpath):
     add_to_favorites_button.click()
 
     driver.get("https://www.avito.ru/favorites")
-    
-    print("Товар добавлен в избранное")
+
+    favorites_list = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.XPATH, '//*[@id="app"]/div/div[4]/div/div/favorite-items-list/div/div/div[1]/div[2]/div[1]/div/div/div[1]/a/img'))
+    )
+
+    if favorites_list.is_displayed():
+        print("Товар добавлен в избранное")
+    else:
+        print("Товар не добавлен в избранное")
+
+
 
 test_avito_favorites_page_title()
 
