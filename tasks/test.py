@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import NoSuchElementException
 import time
 
 # Initialize the driver
@@ -15,11 +16,10 @@ def test_avito_favorites_page_title():
     )
     title = driver.title
     expected_title = "Объявления | Избранное | Авито"
-    if title == expected_title:
-        print("Заголовок страницы совпадает с ожидаемым значением")
-    else:
+    try:
+        assert title == expected_title
+    except AssertionError:
         print("Заголовок страницы не совпадает с ожидаемым значением")
-
 
 def test_add_item_to_favorites(url):
     driver.get(url)
@@ -38,12 +38,10 @@ def test_add_item_to_favorites(url):
         EC.presence_of_element_located((By.XPATH, '//*[@id="app"]/div/div[4]/div/div/favorite-items-list/div/div/div[1]/div[2]/div[1]/div/div/div[1]/a/img'))
     )
 
-    # Assert that the item is added to the favorites list
-    if favorites_list.is_displayed():
-        print("Товар добавлен в избранное")
-    else:
+    try:
+        assert favorites_list.is_displayed()
+    except AssertionError:
         print("Товар не добавлен в избранное")
-
 
 def remove_item(url, xpath):
     driver.get(url)
@@ -79,9 +77,9 @@ def add_to_favorites(item_url, xpath):
         EC.presence_of_element_located((By.XPATH, '//*[@id="app"]/div/div[4]/div/div/favorite-items-list/div/div/div[1]/div[2]/div[1]/div/div/div[1]/a/img'))
     )
 
-    if favorites_list.is_displayed():
-        print("Товар добавлен в избранное")
-    else:
+    try:
+        assert favorites_list.is_displayed()
+    except AssertionError:
         print("Товар не добавлен в избранное")
 
 
