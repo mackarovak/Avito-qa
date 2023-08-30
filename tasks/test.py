@@ -50,7 +50,13 @@ def remove_item(url, xpath):
     item_to_remove = driver.find_element(By.XPATH, xpath)
     remove_button = item_to_remove.find_element(By.XPATH, './div[1]/div')
     remove_button.click()
-    print("Товар удален из избранного")
+
+
+    if driver.find_element(By.XPATH, xpath):
+        print("Товар удален из избранного")
+    else:
+        print("Товар не удален из избранного")
+
 
 def test_sorting():
     driver.get("https://www.avito.ru/favorites")
@@ -105,5 +111,5 @@ remove_item("https://www.avito.ru/favorites", '//*[@id="app"]/div/div[4]/div/div
 item_url = "https://www.avito.ru/all/kollektsionirovanie?q=%D0%9C%D0%BE%D0%BD%D0%B5%D1%82%D0%B0+50%D0%BB%D0%B5%D1%82"
 add_to_favorites(item_url, '//*[@id="i3363777565"]/div/div/div[2]/div[1]/div')
 add_to_favorites('https://www.avito.ru/all/odezhda_obuv_aksessuary?q=%D0%9A%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+Dolce%26Gabbana+%D0%B6%D0%B5%D0%BD%D1%81%D0%BA%D0%B8%D0%B5', '//*[@id="i3182581196"]/div/div/div[2]/div[1]/div')
-time.sleep(200)
+time.sleep(10)
 driver.quit()
