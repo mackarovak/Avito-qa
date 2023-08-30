@@ -82,32 +82,32 @@ def add_to_favorites(item_url, xpath):
     except AssertionError:
         print("Товар не добавлен в избранное")
 
-
-
-test_avito_favorites_page_title()
+try:
+    test_avito_favorites_page_title()
 
 # Run first test
-url1 = "https://www.avito.ru/kaliningrad/kollektsionirovanie/moneta_50let_3363777565"
-test_add_item_to_favorites(url1)
+    url1 = "https://www.avito.ru/kaliningrad/kollektsionirovanie/moneta_50let_3363777565"
+    test_add_item_to_favorites(url1)
 
 # Run second test
-url2 = "https://www.avito.ru/krasnodar/odezhda_obuv_aksessuary/krossovki_dolcegabbana_zhenskie_3209566854"
-test_add_item_to_favorites(url2)
+    url2 = "https://www.avito.ru/krasnodar/odezhda_obuv_aksessuary/krossovki_dolcegabbana_zhenskie_3209566854"
+    test_add_item_to_favorites(url2)
 
 # Run third test
-url3 = "https://www.avito.ru/norilsk/remont_i_stroitelstvo/linoleum_novyy_3251589313"
-test_add_item_to_favorites(url3)
+    url3 = "https://www.avito.ru/norilsk/remont_i_stroitelstvo/linoleum_novyy_3251589313"
+    test_add_item_to_favorites(url3)
 
-test_sorting()
+    test_sorting()
 
 # Remove items from favorites
-remove_item("https://www.avito.ru/favorites", '//*[@id="app"]/div/div[4]/div/div/favorite-items-list/div/div/div[1]/div[2]/div/div/div/div[2]')
-remove_item("https://www.avito.ru/favorites", '//*[@id="app"]/div/div[4]/div/div/favorite-items-list/div/div/div[1]/div[2]/div/div/div/div[2]')
-remove_item("https://www.avito.ru/favorites", '//*[@id="app"]/div/div[4]/div/div/favorite-items-list/div/div/div[1]/div[2]/div/div/div/div[2]')
+    remove_item("https://www.avito.ru/favorites", '//*[@id="app"]/div/div[4]/div/div/favorite-items-list/div/div/div[1]/div[2]/div/div/div/div[2]')
+    remove_item("https://www.avito.ru/favorites", '//*[@id="app"]/div/div[4]/div/div/favorite-items-list/div/div/div[1]/div[2]/div/div/div/div[2]')
+    remove_item("https://www.avito.ru/favorites", '//*[@id="app"]/div/div[4]/div/div/favorite-items-list/div/div/div[1]/div[2]/div/div/div/div[2]')
 
 # Add new items to favorites
-item_url = "https://www.avito.ru/all/kollektsionirovanie?q=%D0%9C%D0%BE%D0%BD%D0%B5%D1%82%D0%B0+50%D0%BB%D0%B5%D1%82"
-add_to_favorites(item_url, '//*[@id="i3363777565"]/div/div/div[2]/div[1]/div')
-add_to_favorites('https://www.avito.ru/all/odezhda_obuv_aksessuary?q=%D0%9A%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+Dolce%26Gabbana+%D0%B6%D0%B5%D0%BD%D1%81%D0%BA%D0%B8%D0%B5', '//*[@id="i3182581196"]/div/div/div[2]/div[1]/div')
-time.sleep(10)
-driver.quit()
+    item_url = "https://www.avito.ru/all/kollektsionirovanie?q=%D0%9C%D0%BE%D0%BD%D0%B5%D1%82%D0%B0+50%D0%BB%D0%B5%D1%82"
+    add_to_favorites(item_url, '//*[@id="i3363777565"]/div/div/div[2]/div[1]/div')
+    add_to_favorites('https://www.avito.ru/all/odezhda_obuv_aksessuary?q=%D0%9A%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+Dolce%26Gabbana+%D0%B6%D0%B5%D0%BD%D1%81%D0%BA%D0%B8%D0%B5', '//*[@id="i3182581196"]/div/div/div[2]/div[1]/div')
+    time.sleep(10)
+finally:
+    driver.quit()
