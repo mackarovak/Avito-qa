@@ -51,8 +51,9 @@ def remove_item(url, xpath):
     remove_button.click()
     print("Товар удален из избранного")
 
-def test_poryadok():
-    price_checkbox = driver.find_element(By.XPATH, '//*[@id="app"]/div/div[4]/div/div/favorite-items-list/div/div/div[1]/div[1]/div/div/div[2]/div')
+def test_sorting():
+    driver.get("https://www.avito.ru/favorites")
+    price_checkbox = driver.find_element(By.XPATH, '//*[@id="app"]/div/div[4]/div/div/favorite-items-list/div/div/div[1]/div[1]/div/div/div[2]/div[1]')
     price_checkbox.click()
     print("Товары из избанного отсортированы по давности добавления")
 
@@ -83,7 +84,7 @@ test_add_item_to_favorites(url2)
 url3 = "https://www.avito.ru/norilsk/remont_i_stroitelstvo/linoleum_novyy_3251589313"
 test_add_item_to_favorites(url3)
 
-test_poryadok()
+test_sorting()
 
 # Remove items from favorites
 remove_item("https://www.avito.ru/favorites", '//*[@id="app"]/div/div[4]/div/div/favorite-items-list/div/div/div[1]/div[2]/div/div/div/div[2]')
