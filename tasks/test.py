@@ -84,7 +84,8 @@ def add_to_favorites(item_url, xpath):
 
 try:
     test_avito_favorites_page_title()
-
+    url = "https://www.avito.ru/favorites"
+    xpath = '//*[@id="app"]/div/div[4]/div/div/favorite-items-list/div/div/div[1]/div[2]/div/div/div/div[2]'
 # Run first test
     url1 = "https://www.avito.ru/kaliningrad/kollektsionirovanie/moneta_50let_3363777565"
     test_add_item_to_favorites(url1)
@@ -100,9 +101,9 @@ try:
     test_sorting()
 
 # Remove items from favorites
-    remove_item("https://www.avito.ru/favorites", '//*[@id="app"]/div/div[4]/div/div/favorite-items-list/div/div/div[1]/div[2]/div/div/div/div[2]')
-    remove_item("https://www.avito.ru/favorites", '//*[@id="app"]/div/div[4]/div/div/favorite-items-list/div/div/div[1]/div[2]/div/div/div/div[2]')
-    remove_item("https://www.avito.ru/favorites", '//*[@id="app"]/div/div[4]/div/div/favorite-items-list/div/div/div[1]/div[2]/div/div/div/div[2]')
+    remove_item(url, xpath)
+    remove_item(url, xpath)
+    remove_item(url, xpath)
 
 # Add new items to favorites
     item_url = "https://www.avito.ru/all/kollektsionirovanie?q=%D0%9C%D0%BE%D0%BD%D0%B5%D1%82%D0%B0+50%D0%BB%D0%B5%D1%82"
