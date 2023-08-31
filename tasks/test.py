@@ -61,6 +61,18 @@ def test_add_to_favorites(item_url, xpath):
     except AssertionError:
         print("Товар не добавлен в избранное")
 
+def click_sorting_button():
+    driver.get('https://www.avito.ru/favorites')
+    sorting_button = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, '[data-marker="favorites-soritng"]'))
+    )
+    sorting_button.click()
+    parent_element = sorting_button.find_element(By.XPATH, '..')
+    buttons = WebDriverWait(driver, 10).until(
+        EC.presence_of_all_elements_located((By.TAG_NAME, 'button'))
+    )
+    buttons[1].click()
+
 try:
     test_favorites_page_title()
     xpath = '//*[@id="app"]/div/div[4]/div/div/favorite-items-list/div/div/div[1]/div[2]/div/div/div/div[2]'
@@ -70,13 +82,12 @@ try:
     test_add_item_to_favorites(url2)
     url3 = "https://www.avito.ru/norilsk/remont_i_stroitelstvo/linoleum_novyy_3251589313"
     test_add_item_to_favorites(url3)
-
+    click_sorting_button()
     test_remove_item(url, xpath)
     test_remove_item(url, xpath)
     test_remove_item(url, xpath)
-
-    poisk_url_c="https://www.avito.ru/all/tovary_dlya_zhivotnyh"
-    xpath_c='//*[@id="i2613511856"]/div/div/div[2]/div[1]/div'
+    poisk_url_c="https://www.avito.ru/cheboksary/igry_pristavki_i_programmy/igrovye_pristavki-ASgBAgICAUSSAsoJ"
+    xpath_c='//*[@id="i3292457719"]/div/div/div[2]/div[1]/div'
     xpath_p='//*[@id="i3363777565"]/div/div/div[2]/div[1]/div'
     poisk_url = "https://www.avito.ru/all/kollektsionirovanie?q=%D0%9C%D0%BE%D0%BD%D0%B5%D1%82%D0%B0+50%D0%BB%D0%B5%D1%82"
     poisk_s='https://www.avito.ru/all/odezhda_obuv_aksessuary?q=%D0%9A%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+Dolce%26Gabbana+%D0%B6%D0%B5%D0%BD%D1%81%D0%BA%D0%B8%D0%B5'
