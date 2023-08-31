@@ -58,3 +58,4 @@ Github-репозиторий
     ```sh
     python test.py
     ```
+есть тест тестов: [видео!](https://youtu.be/KTV27IItl5g)
